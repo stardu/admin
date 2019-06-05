@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+/* var express = require('express');
+var router = express.Router(); */
 
-import user from './users'
+import login from './login'
 
 
 export default app => {
-   app.use('/user',user); 
+   app.use('/login',login); 
 }
