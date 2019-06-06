@@ -1,9 +1,9 @@
 /* var express = require('express');
 var router = express.Router(); */
 
-import login from './login'
+import register from './register'
 
 
 export default app => {
-   app.use('/login',login); 
+    app.use('/api/register', register);
 }
