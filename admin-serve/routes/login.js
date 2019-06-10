@@ -1,8 +1,8 @@
-/* import express from 'express'
-import USER from '../controller/user'
+import express from 'express'
+import User from '../controller/user'
 
 let router = express.Router();
 
-router.post('/',USER.login);
+router.post('/', User.login);
 
-export default router */
+export default router
