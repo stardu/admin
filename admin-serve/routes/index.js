@@ -8,6 +8,14 @@ import test from './test'
 
 
 export default app => {
+    /* app.use(function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        res.header('Access-Control-Allow-Methods', '*');
+        res.header('Content-Type', 'application/json;charset=utf-8');
+        next();
+    }); */
+
     app.use('/api/register', register);
     app.use('/api/login', login);
     app.use('/api/loginOut', loginOut);
@@ -18,7 +26,7 @@ export default app => {
             next();
         } else {
             res.json({
-                err_code: 302,
+                code: 302,
                 err_msg: 'session过期',
             })
         }

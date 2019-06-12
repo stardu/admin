@@ -18,7 +18,7 @@ class User {
                     console.log(result.length)
                     if (result.length != 0) {
                         res.json({
-                            err_code: 300,
+                            code: 300,
                             err_msg: '用户已经存在'
                         })
                     } else {
@@ -27,19 +27,19 @@ class User {
                 }).then(rows => {
                     if (rows.affectedRows == 0) {
                         res.json({
-                            err_code: 300,
+                            code: 300,
                             err_msg: '添加失败'
                         })
                     } else {
                         res.json({
-                            err_code: 200,
+                            code: 200,
                             err_msg: '添加成功'
                         })
                     }
                 })
                 .catch(err => {
                     res.json({
-                        err_code: 300,
+                        code: 300,
                         err_msg: err.msg
                     })
                 })
@@ -57,14 +57,14 @@ class User {
             userModel.queryUser(user_name).then(rows => {
                     if (rows.length == 0) {
                         res.json({
-                            err_code: 301,
+                            code: 301,
                             err_msg: '用户不存在'
                         })
                         return
                     }
                     if (rows[0].pass_word != pass_word) {
                         res.json({
-                            err_code: 301,
+                            code: 301,
                             err_msg: '密码错误'
                         })
                         return
@@ -80,7 +80,7 @@ class User {
                     req.session.userName = user_name;
 
                     res.json({
-                        err_code: 200,
+                        code: 200,
                         err_msg: '登录成功',
                         data: [{
                             token,
@@ -89,7 +89,7 @@ class User {
                 })
                 .catch(err => {
                     res.json({
-                        err_code: 301,
+                        code: 301,
                         err_msg: err.msg
                     })
                 })
@@ -100,7 +100,7 @@ class User {
             console.log(err)
         });
         res.json({
-            err_code: '200',
+            code: '200',
             err_msg: '已退出登录'
         })
     }
